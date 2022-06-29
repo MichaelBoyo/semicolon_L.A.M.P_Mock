@@ -2,17 +2,29 @@ package com.example.semicolonlamp.models;
 
 import com.example.semicolonlamp.enums.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @Document
+@NoArgsConstructor
 public class Native {
     @Id
     private String id;
     private String nativeID;
     private String firstName;
     private String lastName;
+
+    public Native(String nativeID, String firstName, String lastName, String email, String phone, String age) {
+        this.nativeID = nativeID;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phone = phone;
+        this.age = age;
+    }
+
     private String email;
     private String phone;
     private String age;

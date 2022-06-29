@@ -15,14 +15,10 @@ public class NativeServiceImpl implements NativeService{
     NativeRepository nativeRepository;
 
     @Override
-    public Native addNative(NativeRequest _native) {
-        var native_ = new Native();
-        native_.setFirstName(_native.getFirstName());
-        native_.setNativeID(generateNativeNo());
-        native_.setLastName(_native.getLastName());
-        native_.setEmail(_native.getEmail());
-        native_.setPhone(_native.getPhone());
-        native_.setAge(_native.getAge());
+    public Native addNative(NativeRequest nativeRQST) {
+        var native_ = new Native(generateNativeNo(),
+                nativeRQST.getFirstName(),nativeRQST.getLastName(),nativeRQST.getEmail(),
+                nativeRQST.getPhone(),nativeRQST.getAge());
         nativeRepository.save(native_);
         return native_;
     }
