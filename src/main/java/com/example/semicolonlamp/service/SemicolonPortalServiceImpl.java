@@ -4,6 +4,7 @@ import com.example.semicolonlamp.SemicolonException;
 import com.example.semicolonlamp.dtos.requests.NativeRequest;
 import com.example.semicolonlamp.dtos.requests.SemicolonPortalRequest;
 import com.example.semicolonlamp.dtos.response.NativeResponse;
+import com.example.semicolonlamp.models.Native;
 import com.example.semicolonlamp.models.SemicolonPortal;
 import com.example.semicolonlamp.repository.SemicolonPortalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,9 +38,16 @@ public class SemicolonPortalServiceImpl implements SemicolonPortalService{
 
     @Override
     public NativeResponse getNative(String OrganizationNo, String nativeNo) {
+        var org = getPortal(OrganizationNo);
         var _native = nativeService.getNative(nativeNo);
-        return new NativeResponse(_native.getFirstName()+_native.getLastName(),
-                _native.getEmail(),_native.getPhone(),_native.getCohort());
+        if(org.getNatives().contains(_native)){
+            System.out.println("found");
+
+            return new NativeResponse(_native.getFirstName()+" "+_native.getLastName(),
+                    _native.getEmail(),_native.getPhone(),_native.getCohort());
+        }
+        throw new SemicolonException("native not found");
+
     }
 
     @Override

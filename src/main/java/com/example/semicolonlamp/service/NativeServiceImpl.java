@@ -34,8 +34,8 @@ public class NativeServiceImpl implements NativeService{
     private String generateNativeNo(){
         Random random = new Random(10);
         StringBuilder txNo = new StringBuilder();
-        txNo.append(101);
-        for (int i = 0; i <7 ; i++) {
+       txNo.append("Nat");
+        for (int i = 0; i <8 ; i++) {
             txNo.append(random.nextInt(10));
         }
         return txNo.toString();
