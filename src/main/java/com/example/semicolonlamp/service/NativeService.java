@@ -6,4 +6,6 @@ import com.example.semicolonlamp.models.Native;
 public interface NativeService {
     Native addNative(NativeRequest _native);
     Native getNative(String nativeID);
+
+    void save(Native aNative);
 }

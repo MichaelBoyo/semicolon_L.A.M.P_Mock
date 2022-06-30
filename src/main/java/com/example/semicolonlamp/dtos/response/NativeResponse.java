@@ -10,5 +10,5 @@ public class NativeResponse {
     private String name;
     private String email;
     private String phoneNumber;
-    private Cohort cohort;
+    private String cohortName;
 }

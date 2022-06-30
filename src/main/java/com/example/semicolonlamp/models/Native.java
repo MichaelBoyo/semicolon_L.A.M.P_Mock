@@ -29,7 +29,7 @@ public class Native {
     private String phone;
     private String age;
     private Gender gender;
-    private Cohort cohort;
+    private String cohortName;
     private MaritalStatus maritalStatus;
     private String nationality;
     private String stateOfOrigin;

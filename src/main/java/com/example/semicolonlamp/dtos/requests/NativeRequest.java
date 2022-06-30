@@ -1,6 +1,7 @@
 package com.example.semicolonlamp.dtos.requests;
 
 import com.example.semicolonlamp.enums.Gender;
+import com.example.semicolonlamp.models.Native;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -23,4 +24,5 @@ public class NativeRequest {
         this.age = age;
         this.gender = gender;
     }
+
 }

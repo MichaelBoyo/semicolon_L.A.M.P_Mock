@@ -22,12 +22,13 @@ class NativeServiceImplTest {
     @InjectMocks
     NativeServiceImpl nativeService;
     NativeRequest nativeRQST;
+    Native aNative;
 
     @BeforeEach
     void setUp() {
         nativeRQST = new NativeRequest("Eden", "Elenwoke", "woke@gmail.com", "08023443234", "23", FEMALE);
         nativeRQST.setFirstName("Eden");
-        nativeService.addNative(nativeRQST);
+        aNative = nativeService.addNative(nativeRQST);
     }
 
     @Test
@@ -46,5 +47,18 @@ class NativeServiceImplTest {
 
         assertEquals("Eden", savedNative.getFirstName());
         assertNotNull(savedNative.getNativeID());
+
+        try{
+           nativeService.getNative(aNative.getNativeID());
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        Native _native = new Native();
+        try{
+            nativeService.save(_native);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
     }
 }

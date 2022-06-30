@@ -18,7 +18,7 @@ public class SemicolonPortal {
     private String name;
     private String password;
     @DBRef
-    private List<Native> natives = new ArrayList<>();
+    private List<Cohort> cohorts = new ArrayList<>();
 
     public SemicolonPortal(String organizationNo, String name, String password) {
         this.organizationNo = organizationNo;
