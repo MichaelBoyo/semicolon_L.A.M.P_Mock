@@ -50,12 +50,10 @@ public class SemicolonPortalServiceImpl implements SemicolonPortalService {
         var _native = nativeService.getNative(nativeNo);
         if(org.getCohorts().contains(cohort)){
             if(cohort.getNatives().contains(_native)){
-                System.out.println("found");
                 return new NativeResponse(_native.getFirstName()+" "+_native.getLastName(),
                         _native.getEmail(),_native.getPhone(),_native.getCohortName());
             }
         }else throw new SemicolonException("cohort not found");
-
         throw new SemicolonException("native not found");
     }
 
